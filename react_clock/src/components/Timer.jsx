@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { toTwoDigit } from '../utils/time';
+import { Button } from './Buttons.styled';
 
 export const Timer = () => {
     const [time, setTime] = useState(0);
@@ -24,9 +25,9 @@ export const Timer = () => {
     return (
         <div>
            <div style={{fontSize: "150px"}}>{toTwoDigit(hour)}:{toTwoDigit(minute)}:{toTwoDigit(second)}</div>
-            <button onClick={() => {
+            <Button backgroundColor="violet" onClick={() => {
                 toggleRun();
-            }}>Run</button>
+            }}>Run</Button>
         </div>
     )
 } 
