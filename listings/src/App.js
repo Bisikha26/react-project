@@ -3,7 +3,7 @@ import './App.css';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initListings, addListing } from './redux/listingsReducer';
+import { initListings, addListing, deleteListing } from './redux/listingsReducer';
 
 // useSelector -> give access to redux store
 // useDispatch -> let dispatch / fire off redux action functions
@@ -19,6 +19,7 @@ const SubmitListing = () => {
     dispatch(addListing(name, age));
   };
 
+ 
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -41,6 +42,11 @@ function App() {
     const dispatch = useDispatch();
     //useDispatch returns reference to dispatch function from Redux
     const listings = useSelector((state) => state.listings);
+    
+    const removeListing = (listingName) => {
+      dispatch(deleteListing(listingName));
+    }
+  
 
     useEffect(() => {
       dispatch(initListings());
@@ -49,7 +55,10 @@ function App() {
     return(
       <div className="App">
         {listings.map((listing) => (
-          <p>{listing.name}, {listing.age}</p>
+          <p>
+            {listing.name}, {listing.age}
+            <span onClick={() => removeListing(listing.name)}>(X)</span>
+          </p>
         ))}
         <SubmitListing />
       </div>
