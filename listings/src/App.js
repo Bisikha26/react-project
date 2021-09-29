@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initListings, addListing, deleteListing } from './redux/listingsReducer';
 
 import {FaTimes} from 'react-icons/fa';
+import iziToast from 'izitoast';
 
 // useSelector -> give access to redux store
 // useDispatch -> let dispatch / fire off redux action functions
@@ -19,6 +20,14 @@ const SubmitListing = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addListing(name, age));
+
+    // if(!name || !age) {
+    //   iziToast.show({
+    //     title: "Sorry, this form could not be submitted",
+    //     message: `please fill up the form completely`,
+    //   });
+    // }
+
     setName("");
     setAge("");
   };
@@ -31,12 +40,14 @@ const SubmitListing = () => {
         placeholder="Name"
         value={name}
         onChange={({target}) => setName(target.value)}
+        required
       />
       <input
         type="text"
         placeholder="Age"
         value={age}
         onChange={({target}) => setAge(target.value)}
+        required
       />
       <button type="submit">Submit</button>
     </form>
