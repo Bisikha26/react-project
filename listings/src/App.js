@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initListings, addListing, deleteListing } from './redux/listingsReducer';
 
+import {FaTimes} from 'react-icons/fa';
+
 // useSelector -> give access to redux store
 // useDispatch -> let dispatch / fire off redux action functions
 // useEffect -> fire off at each render
@@ -42,7 +44,7 @@ function App() {
     const dispatch = useDispatch();
     //useDispatch returns reference to dispatch function from Redux
     const listings = useSelector((state) => state.listings);
-    
+
     const removeListing = (listingName) => {
       dispatch(deleteListing(listingName));
     }
@@ -54,13 +56,15 @@ function App() {
 
     return(
       <div className="App">
-        {listings.map((listing) => (
-          <p>
-            {listing.name}, {listing.age}
-            <span onClick={() => removeListing(listing.name)}>(X)</span>
-          </p>
-        ))}
+        <div className="title">Who's here ?</div>
+       
         <SubmitListing />
+        {listings.map((listing) => (
+            <p className="list">
+              <div className="list-wrapper">{listing.name}, {listing.age}
+              <span className="times" onClick={() => removeListing(listing.name)}><FaTimes /></span></div>
+            </p>
+        ))}
       </div>
     );
 }

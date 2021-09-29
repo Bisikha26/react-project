@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Recursive:wght@300&display=swap');
+
 .App {
   text-align: center;
+}
+
+body {
+  background-color: #203453;
+}
+
+.title {
+  font-family: 'Cedarville Cursive', cursive;
+  color: #ffffff;
+  font-size: 35px;
 }
 
 .App-logo {
@@ -24,8 +37,38 @@
   color: white;
 }
 
+form input {
+  border-radius: 10px;
+  padding: 15px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #057171;
+  color: #ffffff;
+  font-family: 'Recursive', sans-serif;
+  cursor: pointer;
+}
+
+.list-wrapper {
+  margin: 0 auto;
+  background-color: #ffffff4b;
+  width: 25%;
+  font-family: 'Recursive', sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.times {
+  float: right;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
