@@ -19,6 +19,8 @@ const SubmitListing = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addListing(name, age));
+    setName("");
+    setAge("");
   };
 
  
@@ -27,11 +29,13 @@ const SubmitListing = () => {
       <input
         type="text"
         placeholder="Name"
+        value={name}
         onChange={({target}) => setName(target.value)}
       />
       <input
         type="text"
         placeholder="Age"
+        value={age}
         onChange={({target}) => setAge(target.value)}
       />
       <button type="submit">Submit</button>
