@@ -1,0 +1,7 @@
+########### January 11 ###########
+
+* Component bhitra kunai aru component pass garem bhane its called higher order component.
+* Props are kind of properties. Code lai data pathauna use hunchha.
+* Props ko data can be of any type, string or number or anything
+* Component lai dynamic banauna props plays a big role. Existing component ma different values haru pass garna milchha
+* Website ko different section ma different data chainchha and that data is passed to components via props
